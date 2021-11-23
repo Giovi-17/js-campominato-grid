@@ -12,38 +12,54 @@ const easy = document.getElementById("easy");
 const play = document.getElementById("play");
 const nascosto = document.getElementById("nascosto");
 
-let diff = "easy";
-let numDiff;
-
-if(diff === 'easy'){
-    numDiff = 100;
-
-} else if(diff === 'normal'){
-    numDiff = 81;
-
-} else if(diff === 'hard'){
-    numDiff = 49;
-}
-
 const bigSquare = document.querySelector(".square-container");
 
-let squareDiff = dDiff(bigSquare, numDiff, diff);
+/* let selezionato = fSelezione(); */
 
-const selezionato = document.querySelector(".square");
-console.log(selezionato);
+let c = 0;
+
 
 //FUNZIONI
 
-// quando clicco su play compare la griglia
-play.addEventListener("click", 
+//selezione della difficoltá
+function selectDiff(){
 
-    function() {
+    let x = document.getElementById("difficolta").selectedIndex;
+
+    let y = document.getElementsByTagName("option")[x].value;
+
+    return y;
+};
+
+// quando clicco su play compare la griglia in base al livello di difficolta
+play.addEventListener("click", diffSelected);
+
+function diffSelected() {
+
+    c++;
+
+    if(c === 1){
+        let diff = selectDiff();
+
+        let numDiff;
+
+        if(diff === 'easy'){
+            console.log(diff);
+            numDiff = 100;
+
+        } else if(diff === 'normal'){
+            numDiff = 81;
+
+        } else if(diff === 'hard'){
+            numDiff = 49;
+        }
 
         nascosto.classList.remove("hidden");
 
+        let squareDiff = dDiff(bigSquare, numDiff, diff);
     }
 
-);
+}
 
 //generatore di quadratini per ogni difficoltá
 function dDiff(bigSquare, numDiff, diff){
@@ -60,16 +76,27 @@ function dDiff(bigSquare, numDiff, diff){
 
     }
 
-    
+};
+
+//
+function fSelezione(){
+
+    let selezionato = document.querySelector(".square");
+    console.log(selezionato);
+
+    return selezionato;
+
 }
 
 // quando clicco su una casella cambia colore di sfondo
-selezionato.addEventListener("click", 
+/* selezionato.addEventListener("click", 
 
     function() {
 
-        selezionato.classList.add("selected");
+        this.classList.add("selected");
 
     }
 
-);
+); */
+
+

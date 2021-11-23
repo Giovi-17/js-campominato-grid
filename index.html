@@ -30,17 +30,15 @@
 
                         <span>Difficoltá:</span>
 
-                        <div class="dropdown ms-space-int">
-                            <button id="easy" class="btn btn-secondary dropdown-toggle ms-button-gray" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                              Easy
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <li><button class="dropdown-item ms-button-gray" type="button">Normal</button></li>
-                              <li><button class="dropdown-item ms-button-gray" type="button">Hard</button></li>
-                            </ul>
-                        </div>
+                        <select name="scelta" id="difficolta">
 
-                        <button id="play" type="button" class="btn btn-light ms-button-gray">Play</button>
+                            <option value="easy">Easy</option>
+                            <option value="normal">Normal</option>
+                            <option value="hard">Hard</option>
+
+                        </select>
+
+                        <button id="play" type="button" onclick="selectDiff()" class="btn btn-light ms-button-gray">Play</button>
 
                     </div>
 
