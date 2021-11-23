@@ -8,6 +8,24 @@
     margin: 0 5px;
 }
 
+.hidden{
+    display: none!important;
+}
+
+.selected{
+    background-color: #6495ed;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    color: inherit;
+}
+
 /* HEADER */
 header{
     height: 70px;
@@ -34,6 +52,10 @@ main{
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+}
+
+.square:hover{
+    cursor: pointer;
 }
 
 .square-easy{
