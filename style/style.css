@@ -1,0 +1,62 @@
+/* COMMON */
+.ms-button-gray{
+    background-color: lightgray;
+    color: black;
+}
+
+.ms-space-int{
+    margin: 0 5px;
+}
+
+/* HEADER */
+header{
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+}
+
+/* MAIN */
+main{
+    background-color: #7fffd4;
+    padding: 100px 0;
+}
+
+/* big-square */
+.square-container{
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
+}
+
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.square-easy{
+    height: calc( 100% / 10 );
+    width: calc( 100% / 10 );
+    
+}
+
+.square-normal{
+    height: calc( 100% / 9 );
+    width: calc( 100% / 9 );
+}
+
+.square-hard{
+    height: calc( 100% / 7 );
+    width: calc( 100% / 7 );
+}
+
+
+/* FOOTER */
+footer{
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+}
