@@ -17,12 +17,16 @@
     color: white;
 }
 
-a{
+select{
+    margin: 10px;
+}
+
+header a, main a{
     text-decoration: none;
     color: inherit;
 }
 
-a:hover{
+header a:hover, main a:hover{
     color: inherit;
 }
 
@@ -38,6 +42,13 @@ header{
 main{
     background-color: #7fffd4;
     padding: 100px 0;
+}
+
+/* scritta */
+.scegli{
+    
+    height: 600px;
+    margin: 0;
 }
 
 /* big-square */
@@ -61,15 +72,14 @@ main{
 .square-easy{
     height: calc( 100% / 10 );
     width: calc( 100% / 10 );
-    
 }
 
-.square-normal{
+.square-hard{
     height: calc( 100% / 9 );
     width: calc( 100% / 9 );
 }
 
-.square-hard{
+.square-crazy{
     height: calc( 100% / 7 );
     width: calc( 100% / 7 );
 }

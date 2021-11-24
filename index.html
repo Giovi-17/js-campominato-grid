@@ -28,17 +28,17 @@
 
                     <div class="d-flex justify-content-end align-items-center">
 
-                        <span>Difficoltá:</span>
-
+                        <!-- Level select -->
+                        <label for="difficolta">Difficoltá:</label>
                         <select name="scelta" id="difficolta">
-
+                            
                             <option value="easy">Easy</option>
-                            <option value="normal">Normal</option>
                             <option value="hard">Hard</option>
+                            <option value="crazy">Crazy</option>
 
                         </select>
 
-                        <button id="play" type="button" onclick="selectDiff()" class="btn btn-light ms-button-gray">Play</button>
+                        <button id="play" type="button" class="btn btn-light ms-button-gray">Play</button>
 
                     </div>
 
@@ -58,9 +58,11 @@
 
             <div class="row">
 
-                <div id="nascosto" class="col-12 d-flex justify-content-center hidden">
+                <div class="col-12 d-flex justify-content-center">
 
-                    <div class="row row-cols-5 d-flex flex-wrap square-container ">
+                    <div class="col scegli d-flex justify-content-center align-items-center"><h2>Scegli il livello di difficoltá</h2></div>
+
+                    <div id="nascosto" class="row row-cols-5 d-flex flex-wrap square-container hidden">
 
                         <!-- <div class="col square square-easy"><a href="#">1</a></div> -->
 

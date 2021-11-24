@@ -8,18 +8,49 @@ con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, 
 la cella cliccata si colora di azzurro. */
 
-const easy = document.getElementById("easy");
 const play = document.getElementById("play");
+play.addEventListener("click", diffSelected);
+
 const nascosto = document.getElementById("nascosto");
-
-const bigSquare = document.querySelector(".square-container");
-
-/* let selezionato = fSelezione(); */
 
 let c = 0;
 
-
 //FUNZIONI
+
+// funzione che si attiva quando clicco su play, compare la griglia in base al livello di difficolta
+function diffSelected() {
+
+    c++;
+
+    if(c === 1){
+        let diff = selectDiff();
+
+        let numDiff;
+
+        if(diff === 'easy'){
+            numDiff = 100;
+
+        } else if(diff === 'hard'){
+            numDiff = 81;
+
+        } else if(diff === 'crazy'){
+            numDiff = 49;
+        }
+
+        //Al click la scritta nell'h2 scompare
+        let scegli = document.querySelector(".scegli");
+        scegli.classList.add("hidden");
+
+        //Al click viene tolta la classe hidden e la griglia compare
+        
+        
+        nascosto.classList.remove("hidden");
+
+        const bigSquare = document.querySelector(".square-container");
+        let squareDiff = dDiff(bigSquare, numDiff, diff);
+    }  
+        
+}
 
 //selezione della difficoltá
 function selectDiff(){
@@ -31,72 +62,60 @@ function selectDiff(){
     return y;
 };
 
-// quando clicco su play compare la griglia in base al livello di difficolta
-play.addEventListener("click", diffSelected);
-
-function diffSelected() {
-
-    c++;
-
-    if(c === 1){
-        let diff = selectDiff();
-
-        let numDiff;
-
-        if(diff === 'easy'){
-            console.log(diff);
-            numDiff = 100;
-
-        } else if(diff === 'normal'){
-            numDiff = 81;
-
-        } else if(diff === 'hard'){
-            numDiff = 49;
-        }
-
-        nascosto.classList.remove("hidden");
-
-        let squareDiff = dDiff(bigSquare, numDiff, diff);
-    }
-
-}
-
 //generatore di quadratini per ogni difficoltá
 function dDiff(bigSquare, numDiff, diff){
 
     for(let i = 1; i <= numDiff; i++){
 
-        let newSquare = `
+        /* let newSquare = `
     
             <div class="col square square-${diff}"><a href="#">${i}</a></div>
     
         `;
 
-        bigSquare.innerHTML += newSquare;
+        bigSquare.innerHTML += newSquare; */
+
+        const newGeneratedCell = generateGridItem(i,diff);
+
+        newGeneratedCell.addEventListener('click', sqSelected);
+
+        nascosto.appendChild(newGeneratedCell);
 
     }
 
 };
 
-//
-function fSelezione(){
+// quando clicco su una casella cambia colore di sfondo
+function sqSelected() {
 
-    let selezionato = document.querySelector(".square");
-    console.log(selezionato);
-
-    return selezionato;
+    this.classList.add("selected");
 
 }
 
-// quando clicco su una casella cambia colore di sfondo
-/* selezionato.addEventListener("click", 
-
-    function() {
-
-        this.classList.add("selected");
-
+// Genera un nuovo square per la griglia
+// 
+// innerNumber -> numero che deve comparire nella cella
+// cellDimension -> dimensione della cella
+// 
+// return: l'elemento pronto per essere 'appeso' alla griglia
+function generateGridItem(innerNumber,diff) {
+    // Creare un nuovo div
+    const newCell = document.createElement('div');
+    // aggiungere la classe 'col'
+    newCell.classList.add('col');
+    // aggiungere la classe 'square'
+    newCell.classList.add('square');
+    // aggiungere la classe 'square diff'
+    if(diff === "easy"){
+        newCell.classList.add('square-easy');
+    }else if(diff === "hard"){
+        newCell.classList.add('square-hard');
+    }else if(diff === "crazy"){
+        newCell.classList.add('square-crazy');
     }
+        
+    // popolare la cella con lo span col numero, 
+    newCell.innerHTML = `<a href="#">${innerNumber}</a>`;
 
-); */
-
-
+    return newCell;
+}
